@@ -1,7 +1,7 @@
 import Items from "./Items";
 const FoodItems = ({fi}) => {
   return (
-    <ul className="list-group text-center">
+    <ul className="list-group">
       {fi.map((items) => (
         <Items key={items} item={items}></Items>
       ))}
