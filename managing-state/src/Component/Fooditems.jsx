@@ -3,10 +3,10 @@ import Items from "./Items";
 const FoodItems = ({ fi }) => {
   let [boughtFoodItems, setBoughtFoodItems] = useState([]);
   const buyButtonClicked = (event, items) => {
-    let newFoodItems =  [...boughtFoodItems, items];
+    let newFoodItems = [...boughtFoodItems, items];
     setBoughtFoodItems(newFoodItems);
     console.log(event);
-  }
+  };
   return (
     <ul className="list-group">
       {fi.map((items) => (
