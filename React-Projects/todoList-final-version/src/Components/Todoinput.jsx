@@ -1,8 +1,9 @@
 import { useState } from "react";
 import styles from "./Todoinput.module.css";
+import { IoAdd } from "react-icons/io5";
 function Todoinput({ onChangeTask }) {
-  const [addTodoTask, setAddTodoTask] = useState();
-  const [addTodoDate, setAddTodoDate] = useState();
+  const [addTodoTask, setAddTodoTask] = useState("");
+  const [addTodoDate, setAddTodoDate] = useState("");
   const handleOnTask = (event) => {
     setAddTodoTask(event.target.value);
   };
@@ -13,7 +14,7 @@ function Todoinput({ onChangeTask }) {
     onChangeTask(addTodoTask, addTodoDate);
     setAddTodoTask("");
     setAddTodoDate("");
-  }
+  };
   return (
     <div className="todo-input">
       <div className="row myrow">
@@ -37,10 +38,10 @@ function Todoinput({ onChangeTask }) {
         <div className="col-2">
           <button
             type="button"
-            className="btn btn-success btn-primary mybtn"
+            className="btn btn-success btn-primary mybtn fs-4 p-1"
             onClick={handleOnChangeValues}
           >
-            Add
+            <IoAdd />
           </button>
         </div>
       </div>
