@@ -10,14 +10,15 @@ function Todoinput({ onChangeTask }) {
   const handleOnDate = (event) => {
     setAddTodoDate(event.target.value);
   };
-  const handleOnChangeValues = () => {
+  const handleOnChangeValues = (event) => {
+    event.preventDefault();
     onChangeTask(addTodoTask, addTodoDate);
     setAddTodoTask("");
     setAddTodoDate("");
   };
   return (
     <div className="todo-input">
-      <div className="row myrow">
+      <form onSubmit={handleOnChangeValues} className="row myrow">
         <div className="col-6">
           <input
             className={`form-control ${styles.inputTask}`}
@@ -36,15 +37,11 @@ function Todoinput({ onChangeTask }) {
           />
         </div>
         <div className="col-2">
-          <button
-            type="button"
-            className="btn btn-success btn-primary mybtn fs-4 p-1"
-            onClick={handleOnChangeValues}
-          >
+          <button className="btn btn-success btn-primary mybtn fs-4 p-1">
             <IoAdd />
           </button>
         </div>
-      </div>
+      </form>
     </div>
   );
 }
