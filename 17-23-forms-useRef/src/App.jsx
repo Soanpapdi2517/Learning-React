@@ -4,14 +4,11 @@ import "./Components/app.css";
 import ItemContainer from "./Components/ItemContainer";
 import NoTask from "./Components/NoTask";
 import { useState } from "react";
-
 function App() {
   const [todoItems, setTodoItems] = useState([]);
   const handleGivenTask = (itemName, itemDueDate) => {
-    setTodoItems((previousTodoItems) => [
-      ...previousTodoItems,
-      { name: itemName, duedate: itemDueDate },
-    ]);
+
+    setTodoItems((previousTodoItems)=>[...previousTodoItems, { name: itemName, duedate: itemDueDate }]);
   };
   const handleOnDeletebtn = (TaskName) => {
     const newTasksAfterDelete = todoItems.filter(
@@ -19,12 +16,11 @@ function App() {
     );
     setTodoItems(newTasksAfterDelete);
   };
-  
   return (
     <center className="Todo-Container">
       <Header></Header>
       <Todoinput onChangeTask={handleGivenTask}></Todoinput>
-      <NoTask todoItems={todoItems}></NoTask>
+      {todoItems.length === 0 && <NoTask></NoTask>}
       <ItemContainer
         onDeleteBtn={handleOnDeletebtn}
         todoTask={todoItems}
