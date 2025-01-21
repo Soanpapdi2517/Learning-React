@@ -1,0 +1,10 @@
+.myrow{
+    margin: 0.5rem;
+}
+.mybtn{
+    min-width: 3rem;
+    height: 3rem;
+}
+.Todo-Container{
+width: 90%;
+}
