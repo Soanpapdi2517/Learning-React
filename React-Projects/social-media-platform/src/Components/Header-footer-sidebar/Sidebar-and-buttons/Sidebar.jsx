@@ -1,15 +1,25 @@
+import { useState } from "react";
 import { AiFillHome } from "react-icons/ai";
 import { FiPlusCircle } from "react-icons/fi";
 import { IoIosNotifications } from "react-icons/io";
 import { IoSettingsOutline } from "react-icons/io5";
 import { MdOutlineExplore } from "react-icons/md";
+import { AiOutlineMenu } from "react-icons/ai";
 
-const SideBar = ({ selectedTab, setSelectedTab}) => {
+const SideBar = ({ selectedTab, setSelectedTab }) => {
+  const [isSideBarVisible, setSideBarVisible] = useState(false);
   return (
-    <div >
+    <>
+    {/* sideBar button for mobile web veiw */}
+    <button className="btn btn-dark d-md-none d-none "
+    onClick={() => setIsSidebarVisible(!isSidebarVisible)}>
+<AiOutlineMenu />
+    </button>
       <div
-        className="d-flex flex-column flex-shrink-0 p-3 text-bg-dark fs-5 align-items-stretch fixed-top h-100"
-        style={{ width: "18%"}}
+        className={`sidebar d-flex flex-column flex-shrink-0 p-3 text-bg-dark fs-5 align-items-stretch h-100 fixed-top ${
+          isSideBarVisible && "show"
+        }`}
+        style={{ width: "280px" }}
       >
         <a
           href="/"
@@ -23,9 +33,8 @@ const SideBar = ({ selectedTab, setSelectedTab}) => {
         <hr />
         <ul className="nav nav-pills flex-column mb-auto">
           <li
-            className="nav-item d-flex align-items-stretch"
+            className="nav-item"
             onClick={() => {
-              console.log("Clicked");
               setSelectedTab("Home");
             }}
           >
@@ -44,7 +53,6 @@ const SideBar = ({ selectedTab, setSelectedTab}) => {
           </li>
           <li
             onClick={() => {
-              console.log("Clicked");
               setSelectedTab("Explore");
             }}
           >
@@ -62,7 +70,6 @@ const SideBar = ({ selectedTab, setSelectedTab}) => {
           </li>
           <li
             onClick={() => {
-              console.log("Clicked");
               setSelectedTab("Create");
             }}
           >
@@ -80,7 +87,6 @@ const SideBar = ({ selectedTab, setSelectedTab}) => {
           </li>
           <li
             onClick={() => {
-              console.log("Clicked");
               setSelectedTab("Notification");
             }}
           >
@@ -98,7 +104,6 @@ const SideBar = ({ selectedTab, setSelectedTab}) => {
           </li>
           <li
             onClick={() => {
-              console.log("Clicked");
               setSelectedTab("Settings");
             }}
           >
@@ -159,7 +164,7 @@ const SideBar = ({ selectedTab, setSelectedTab}) => {
           </ul>
         </div>
       </div>
-    </div>
+    </>
   );
 };
 export default SideBar;
