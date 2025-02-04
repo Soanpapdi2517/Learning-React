@@ -12,13 +12,13 @@ const router = createBrowserRouter([
     children: [
       {
         path: "/",
-        element: <PostList/>,
+        element: <PostList />,
         loader: postLoader,
       },
       {
         path: "/create-post",
-        element: <CreatePost /> 
-      }
+        element: <CreatePost />,
+      },
     ],
   },
 ]);
