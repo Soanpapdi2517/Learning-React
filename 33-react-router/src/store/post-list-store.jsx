@@ -63,7 +63,6 @@ const PostListProvider = ({ children }) => {
       });
 
     return () => {
-      console.log("Cleaning up UseEffect.");
       controller.abort();
     };
   }, []);

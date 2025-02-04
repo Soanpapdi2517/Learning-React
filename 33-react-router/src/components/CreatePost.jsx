@@ -23,7 +23,6 @@ const CreatePost = () => {
     postBodyElement.current.value = "";
     reactionsElement.current.value = "";
     tagsElement.current.value = "";
-    
     fetch('https://dummyjson.com/posts/add', {
       method: 'POST',
       headers: { 'Content-Type': 'application/json' },
