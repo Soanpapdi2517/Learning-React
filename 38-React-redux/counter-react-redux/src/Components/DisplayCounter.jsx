@@ -1,7 +1,11 @@
+import { useSelector } from "react-redux";
+
 const DisplayCounter = () => {
+  const value = useSelector((store) => store.counter);
+  const nightMode = useSelector ((store) => store.night);
   return (
     <div className="col-lg-6 mx-auto">
-      <p className="lead mb-4">Counter's value:</p>
+      <p className={` mb-4 ${nightMode? 'text-white' : 'lead'}`}>Counter's value: {value}</p>
     </div>
   );
 };
