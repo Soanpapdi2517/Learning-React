@@ -5,18 +5,19 @@ const INITIAL_VALUE = {
   night: false,
 };
 const reducer = (store = INITIAL_VALUE, action) => {
+    let newStore = store;
     if(action.type === "INCREMENT"){
-        return {...store, counter: store.counter + 1} 
+        newStore = {...store, counter: store.counter + 1} 
     }else if(action.type === "DECREMENT"){
-        return {...store, counter: store.counter - 1}
+        newStore = {...store, counter: store.counter - 1}
     }else if (action.type === "ADDITION"){
-        return {...store, counter: store.counter + Number(action.payload.num)}
+        newStore = {...store, counter: store.counter + Number(action.payload.num)}
     }else if (action.type === "SUBSTRACT"){
-        return {...store, counter: store.counter - Number(action.payload.num)}
+        newStore = {...store, counter: store.counter - Number(action.payload.num)}
     }else if (action.type === "NIGHT_MODE"){
-        return {...store, night: !store.night}
+        newStore = {...store, night: !store.night}
     }
-    return store;
+    return newStore;
     }
 
 const counterStore = createStore(reducer);

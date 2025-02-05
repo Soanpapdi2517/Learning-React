@@ -4,7 +4,7 @@ import { useDispatch, useSelector } from "react-redux";
 import { MdOutlineDarkMode } from "react-icons/md";
 
 const Controls = () => {
-   const nightMode = useSelector(store => store.night)
+  const nightMode = useSelector((store) => store.night);
   const inputBox = useRef();
   const dispatch = useDispatch();
   const handleOnIncrement = () => {
@@ -52,13 +52,15 @@ const Controls = () => {
         </button>
         <button
           type="button"
-          className={`btn ${nightMode ? ' btn btn-light' : 'btn-outline-danger'}  btn-lg px-4`}
+          className={`btn ${
+            nightMode ? " btn btn-light" : "btn-outline-danger"
+          }  btn-lg px-4`}
           onClick={handleOnDecrement}
         >
           Decrement -1
         </button>
         <span onClick={handleOnDarkMode} className="fs-2 nightbutton">
-          {nightMode? <MdDarkMode /> : <MdOutlineDarkMode />}
+          {nightMode ? <MdDarkMode /> : <MdOutlineDarkMode />}
         </span>
       </div>
       <div className="d-grid gap-2 d-sm-flex justify-content-sm-center mt-4">
@@ -77,7 +79,9 @@ const Controls = () => {
         </button>
         <button
           type="button"
-          className={`btn ${nightMode ? ' btn btn-light' : 'btn-outline-danger'}  btn-lg px-4`}
+          className={`btn ${
+            nightMode ? " btn btn-light" : "btn-outline-danger"
+          }  btn-lg px-4`}
           onClick={onSubstract}
         >
           Substract
