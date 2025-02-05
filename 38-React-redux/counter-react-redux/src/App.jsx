@@ -10,23 +10,21 @@ function App() {
   const darkMode = useSelector((store) => store.night);
   return (
     <>
-    <div className="px-4 py-5 my-5 text-center">
-      {darkMode ? (
-        <NightBackground>
-          
+      <div className="px-4 py-5 my-5 text-center">
+        {darkMode ? (
+          <NightBackground>
             <Header></Header>
             <DisplayCounter></DisplayCounter>
             <Controls></Controls>
-  
-        </NightBackground>
-      ) : (
-        <Cards>
-          <Header></Header>
-          <DisplayCounter></DisplayCounter>
-          <Controls></Controls>
-        </Cards>
-      )}
-    </div>
+          </NightBackground>
+        ) : (
+          <Cards>
+            <Header></Header>
+            <DisplayCounter></DisplayCounter>
+            <Controls></Controls>
+          </Cards>
+        )}
+      </div>
     </>
   );
 }
