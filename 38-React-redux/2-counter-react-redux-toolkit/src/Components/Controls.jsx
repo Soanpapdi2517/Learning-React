@@ -2,43 +2,34 @@ import { MdDarkMode } from "react-icons/md";
 import { useRef } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { MdOutlineDarkMode } from "react-icons/md";
+import { counterAction } from "../Store/counter";
+import { nightAction } from "../Store/nightMode";
 
 const Controls = () => {
-  const nightMode = useSelector((store) => store.night);
+  const nightMode = useSelector((store) => store.night_mode);
   const inputBox = useRef();
   const dispatch = useDispatch();
   const handleOnIncrement = () => {
-    dispatch({ type: "INCREMENT" });
+    dispatch(counterAction.Increment());
   };
 
   const handleOnDecrement = () => {
-    dispatch({ type: "DECREMENT" });
+    dispatch(counterAction.Decrement());
   };
   const onAddition = () => {
-    dispatch({
-      type: "ADDITION",
-      payload: {
+    dispatch(
+      counterAction.Add({
         num: inputBox.current.value,
-      },
-    });
+      })
+    );
     inputBox.current.value = "";
   };
   const onSubstract = () => {
-    dispatch({
-      type: "SUBSTRACT",
-      payload: {
-        num: inputBox.current.value,
-      },
-    });
+    dispatch(counterAction.Substract({ num: inputBox.current.value }));
     inputBox.current.value = "";
   };
   const handleOnDarkMode = () => {
-    dispatch({
-      type: "NIGHT_MODE",
-      payload: {
-        night: true,
-      },
-    });
+    dispatch(nightAction.toggle());
   };
   return (
     <>

@@ -7,7 +7,7 @@ import Cards from "./Components/Cards";
 import { useSelector } from "react-redux";
 import NightBackground from "./Components/nightBackground";
 function App() {
-  const darkMode = useSelector((store) => store.night);
+  const darkMode = useSelector((store) => store.night_mode);
   return (
     <>
       <div className="px-4 py-5 my-5 text-center">
