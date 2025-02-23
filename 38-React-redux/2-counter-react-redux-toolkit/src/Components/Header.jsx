@@ -2,7 +2,7 @@ import { useSelector } from "react-redux";
 
 const Header = () => {
   const nightMode = useSelector((store) => store.night_mode);
-  
+
   return (
     <>
       <h1
